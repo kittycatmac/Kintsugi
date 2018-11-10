@@ -1,6 +1,7 @@
 require('dotenv').config();
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require("body-parser");
 
 var db = require('./models');
 
@@ -11,6 +12,10 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
+
+// body parser middleware 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:true}));
 
 // Handlebars
 app.engine(
