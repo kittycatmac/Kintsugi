@@ -1,3 +1,45 @@
 DROP DATABASE IF EXISTS Kintsugidb;
 CREATE DATABASE Kintsugidb;
 
+
+
+USE Kintsugidb;
+
+CREATE TABLE UserSchema(
+
+user_info VARCHAR(30) NOT NULL,
+Bio VARCHAR(140) NOT NULL,
+badges DECIMAL(10,4) NOT NULL,
+study_cards VARCHAR(140) NOT NULL,
+PRIMARY KEY (user_info)
+
+);
+
+USE Kintsugidb;
+
+CREATE TABLE flashcard(
+
+deck_ID INTEGER(10) AUTO_INCREMENT NOT NULL,
+front VARCHAR(30) NOT NULL,
+back VARCHAR(30) NOT NULL,
+PRIMARY KEY (deck_ID)
+
+);
+
+USE Kintsugidb;
+
+CREATE TABLE learning(
+ id INTEGER(100) AUTO_INCREMENT NOT NULL,
+ symbol VARCHAR(10),
+ saying VARCHAR(100),
+ PRIMARY KEY (id)
+);
+
+USE Kintsugidb;
+
+CREATE TABLE businessKanji(
+ id INTEGER(100) AUTO_INCREMENT NOT NULL,
+ symbol VARCHAR(10),
+ saying VARCHAR(100),
+ PRIMARY KEY (id)
+);
