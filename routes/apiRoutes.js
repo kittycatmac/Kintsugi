@@ -36,10 +36,17 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 	res.redirect('/home');
 });
 
-	app.get('/toast', (req, res) => {
-		console.log('req.user after login: ', req.user);
-		res.render('index');
-	});
+
+// to get home 
+app.get('/home', (req,res) => {
+	console.log('req.home after login: ', req.user);
+	res.render('home')
+});
+// user info
+app.get('/user', (req, res) => {
+	console.log('req.user after login: ', req.user);
+	res.render('profile');
+});
 	
 	app.get('/user/logout', (req, res) => {
 		console.log('REQ USER BEFORE LOGOUT', req.user);
