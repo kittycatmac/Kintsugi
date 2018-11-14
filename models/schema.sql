@@ -7,11 +7,11 @@ USE Kintsugidb;
 
 CREATE TABLE UserSchema(
 
-user_id VARCHAR(30) NOT NULL,
+user_ID VARCHAR(30) NOT NULL,
 Bio VARCHAR(140) NOT NULL,
 badges DECIMAL(10,4) NOT NULL,
 study_cards VARCHAR(140) NOT NULL,
-PRIMARY KEY (user_id)
+PRIMARY KEY (user_ID)
 
 );
 
@@ -29,17 +29,18 @@ PRIMARY KEY (deck_ID)
 USE Kintsugidb;
 
 CREATE TABLE learning(
- id INTEGER(100) AUTO_INCREMENT NOT NULL,
- symbol VARCHAR(10),
- saying VARCHAR(100),
- PRIMARY KEY (id)
+	
+ learning_ID INTEGER(10) AUTO_INCREMENT NOT NULL,
+ symbol VARCHAR(100) NOT NULL,
+ saying VARCHAR(100) NOT NULL,
+ PRIMARY KEY (learning_ID)
 );
 
 USE Kintsugidb;
 
 CREATE TABLE businessKanji(
- id INTEGER(100) AUTO_INCREMENT NOT NULL,
- symbol VARCHAR(10),
- saying VARCHAR(100),
- PRIMARY KEY (id)
+ kanji_ID INTEGER(100) AUTO_INCREMENT NOT NULL,
+ symbol VARCHAR(10) NOT NULL,
+ saying VARCHAR(100) NOT NULL,
+ PRIMARY KEY (kanji_ID)
 );

@@ -1,6 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 	var Learning = sequelize.define('LearningSchema', {
-			id: DataTypes.INTEGER,
+			learning_ID: DataTypes.INTEGER,
+			// primaryKey: true,
 			symbol: DataTypes.STRING,
 			saying: DataTypes.STRING
 	});
