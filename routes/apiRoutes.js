@@ -45,7 +45,7 @@ app.get('/home', (req,res) => {
 // user info
 app.get('/user', (req, res) => {
 	console.log('req.user after login: ', req.user);
-	res.render('profile');
+	res.render('user');
 });
 	
 	app.get('/user/logout', (req, res) => {

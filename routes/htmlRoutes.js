@@ -3,8 +3,13 @@ var db = require('../models');
 module.exports = function (app) {
 	// Load index page
 	app.get('/', function (req, res) {
+<<<<<<< HEAD
+		db.UserSchema.findAll({}).then(function (dbExamples) {
+			console.log("DBEXAMPLES USER: ", dbExamples);
+=======
 		db.LearningSchema.findAll().then(function (dbExamples) {
 			console.log("DBEXAMPLES USERS: ", dbExamples);
+>>>>>>> master
 			res.render('index', {
 				msg: 'Welcome!',
 				examples: dbExamples
