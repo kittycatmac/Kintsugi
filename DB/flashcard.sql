@@ -1,4 +1,4 @@
-INSERT INTO flashcard (front, back)
+INSERT INTO CardSchema (front, back)
 VALUES
  ("Japanese: 合う ,
   Hiragana: あう

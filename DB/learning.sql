@@ -1,4 +1,4 @@
-INSERT INTO learning (symbol, saying)
+INSERT INTO LearningSchema (symbol, saying)
 VALUES ("あ","a"),
 ("い","i"),
 ("う","u"),
