@@ -7,11 +7,11 @@ USE Kintsugidb;
 
 CREATE TABLE UserSchema(
 
-user_info VARCHAR(30) NOT NULL,
+user_id VARCHAR(30) NOT NULL,
 Bio VARCHAR(140) NOT NULL,
 badges DECIMAL(10,4) NOT NULL,
 study_cards VARCHAR(140) NOT NULL,
-PRIMARY KEY (user_info)
+PRIMARY KEY (user_id)
 
 );
 
