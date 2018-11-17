@@ -32,28 +32,13 @@ module.exports = function (app) {
 	}));
 
 	app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function (req, res) {
-		console.log("REQ: ", req.user);
 		// Successful authentication, redirect home.
-		res.redirect('/home');
+		res.redirect('/');
 	});
 
-
-	// to get home 
-	app.get('/home', (req, res) => {
-		console.log('req.home after login: ', req.user);
-		res.render('home')
-	});
-	// user info
-	app.get('/user', (req, res) => {
-		console.log('req.user after login: ', req.user);
-		res.render('user');
-	});
-
-	app.get('/user/logout', (req, res) => {
-		console.log('REQ USER BEFORE LOGOUT', req.user);
+	app.get('/api/logout', (req, res) => {
 		req.logout();
-		console.log('REQ USER AFTER LOGOUT', req.user);
-		res.redirect('/loggedout');
+		res.redirect('/');
 	});
 
 

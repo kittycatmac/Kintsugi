@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Kintsugi</title>
 
 	<!-- link to the jQuery library -->
-  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 	<!-- link to reset stylesheet -->
 	<link rel="stylesheet" href="reset.css">
@@ -18,54 +19,60 @@
 
 	<!-- compiled and minified materialize JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-          
+
 	<link rel="icon" href="img/favicon-16x16.png" type="image">
 	<link rel="stylesheet" href="styles/styles.css" type="text/css">
-	
+
 </head>
 
 <body>
 	<header>
 		<nav class="z-depth-5">
 			<div class="nav-wrapper">
-                <div>
-                    <a href="/" class="left brand-logo" id="logo">Kintsugi 金継ぎ</a>
-                </div>
-                <div>
-				    <ul class="right hide-on-small-only" id="head-nav-links">
-					    <li><a href="/">Profile</a></li>
-					    <li><a href="/">Logout</a></li>
-				  		<li><a href="/auth/google">Login</a></li>
-						</ul>
+
+
+				<div>
+					<a href="/" class="left brand-logo" id="logo">Kintsugi 金継ぎ</a>
+				</div>
+				<div>
+					<ul class="right hide-on-small-only" id="head-nav-links">
+						{{#if user}}
+							<li><a href="#">Profile</a></li>
+							<li><a href="/api/logout">Logout</a></li>
+						{{else}}
+							<li><a href="/auth/google">Login</a></li>
+						{{/if}}
+					</ul>
 				</div>
 				<div id="head-nav-links" class="right">
 					<a href="#slide-out" data-target="slide-out" class="sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
 					<ul id="slide-out" class="sidenav hide">
-				  		<li><a href="">Profile</a></li>
-				  		<li><a href="">Logout</a></li>
-				  		<li><a href="/auth/google">Login</a></li>
-			  		</ul>
-			  	</div>
+						<li><a href="">Profile</a></li>
+						<li><a href="">Logout</a></li>
+						<li><a href="/auth/google">Login</a></li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	</header>
 	{{{body}}}
 </body>
+
 </html>
 <script>
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
+	document.addEventListener('DOMContentLoaded', function () {
+		var elems = document.querySelectorAll('.sidenav');
+		var instances = M.Sidenav.init(elems, options);
+	});
 
-//   // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-//   var collapsibleElem = document.querySelector('.collapsible');
-//   var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+	//   // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+	//   var collapsibleElem = document.querySelector('.collapsible');
+	//   var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
-  // Or with jQuery
+	// Or with jQuery
 
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+	$(document).ready(function () {
+		$('.sidenav').sidenav();
+	});
 </script>

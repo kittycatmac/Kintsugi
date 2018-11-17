@@ -69,7 +69,6 @@ body {
  
  .card-div-holder {
 	 background-color: #603a3f;
-	 height: 400px;
 	 color: #DDC9AF;
 	 margin-bottom: 20px;
  }
@@ -137,7 +136,7 @@ body {
  /*style for flash cards*/
  .flip3D {
 	width: 240px;
-	height: 200 px;
+	height: 200px;
 	margin: 10px;
 	float: left;
 	}
