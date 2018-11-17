@@ -26,6 +26,7 @@ module.exports = function (app) {
 
 
 	// routes below
+<<<<<<< HEAD
 	app.get('/auth/google', passport.authenticate('google', { 
 	prompt : 'select_account',
 	scope: ['profile'] }));
@@ -50,9 +51,21 @@ module.exports = function (app) {
 	
 	app.get('/user/logout', (req, res) => {
 		console.log('REQ USER BEFORE LOGOUT', req.user);
+=======
+	app.get('/auth/google', passport.authenticate('google', {
+		prompt: 'select_account',
+		scope: ['profile', 'email']
+	}));
+
+	app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function (req, res) {
+		// Successful authentication, redirect home.
+		res.redirect('/');
+	});
+
+	app.get('/api/logout', (req, res) => {
+>>>>>>> origin
 		req.logout();
-		console.log('REQ USER AFTER LOGOUT', req.user);
-		res.redirect('/loggedout');
+		res.redirect('/');
 	});
 
 

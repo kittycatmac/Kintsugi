@@ -1,3 +1,5 @@
+const db = require('../models');
+
 var passport = require ("passport");
 var GoogleStrategy = require("passport-google-oauth20");
 
@@ -9,11 +11,11 @@ module.exports = app => {
 	
 	// PASSPORT SETUP
 	passport.serializeUser((user, done) => {
-		done(null, user.id);
+		done(null, user.user_ID);
 	});
 
 	passport.deserializeUser((id, done) => {
-		User.findById(id)
+		db.UserSchema.findById(id)
 				.then(user => {
 						done(null, user);
 				});
@@ -25,23 +27,22 @@ passport.use(
 		clientID: "206437889113-sioe43rlfeon8iocfbcnh50fcg8jme9d.apps.googleusercontent.com",
 		clientSecret: "Sx9AFgqBY96dIztmsbndoS7I",
 		callbackURL: "http://localhost:3000/auth/google/callback"
-  }, 
-  async (accessToken, refreshToken, profile, done) => {
-			// const existingUser = await User.findOne({ googleId: profile.id })
-			console.log(profile);
-      
-      // if(existingUser) {
-      //     return done(null, existingUser);
-      // }
-// Mongoose to be set to mysql
-      // const user = await new User({ googleId: profile.id }).save()
+  }, async (accessToken, refreshToken, profile, done) => {	
+		const existingUser = await db.UserSchema.findById(profile.id );
+	
+		if(existingUser) {
+			return done(null, existingUser);
+		};
 
+		const new_user = {
+			user_ID: profile.id,
+			Bio: '',
+			badges: '',
+			study_cards: ''
+		};
 
-      // console.log("USER: ", user);
-			done(null, profile);
-			// done(null, user);
+		const user = await db.UserSchema.create(new_user).then(user => user.dataValues);
+		return done(null, user);
 	})
 	);
 }
-
-

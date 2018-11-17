@@ -5,9 +5,18 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             allowNull: false
         },
-        Bio: DataTypes.STRING,
-        badges: DataTypes.STRING,
-        study_cards: DataTypes.STRING
+        Bio: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        badges: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        study_cards: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     }, {
         timestamps: false,
         freezeTableName: true

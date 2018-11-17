@@ -1,25 +1,23 @@
 require('dotenv').config();
-var express = require('express');
-var exphbs = require('express-handlebars');
-var bodyParser = require("body-parser");
-var expressSession = require("express-session");
-var passport = require("passport");
+const express = require('express');
+const exphbs = require('express-handlebars');
+const bodyParser = require("body-parser");
+const expressSession = require("express-session");
 
 const keys = require('./config/keys');
 const path = require('path');
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-var db = require('./models');
-
-// require('./models/User');
-// console.log("KEYS: ", keys);
 const expSession = {
-  secret: "asuyfugakugbeugatykwgetykauwlkeytasey",
-  cookie: {}
+	secret: keys.expSession,
+	cookie: {}
 };
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+// Requiring our models for syncing
+var db = require("./models");
+
 
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,13 +28,10 @@ app.use(express.static('public'));
 
 // body parser middleware 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
-
-
-// Handlebars
+// Handlebars / view engine
 app.engine(
 	'handlebars',
 	exphbs({
@@ -45,36 +40,17 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
+// passport
+require("./passport/passport")(app);
 // Routes
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
-var syncOptions = { force: false };
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === 'test') {
-	syncOptions.force = true;
-}
-
-require("./passport/passport")(app);
-
-
-	
-	app.listen(PORT, () => {
-		console.log('app listening on port: ', PORT);
-	})
-
-
-// Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function () {
-// 	app.listen(PORT, function () {
-// 		console.log(
-// 			'==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
-// 			PORT,
-// 			PORT
-// 		);
-// 	});
-// });
-
-// module.exports = app;
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: false }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
