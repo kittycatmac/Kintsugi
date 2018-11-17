@@ -1,7 +1,6 @@
-console.log('loaded');
-
-exports.spotify = {
-  id: process.env.GOOGLE_ID,
-  secret: process.env.GOOGLE_SECRET
+module.exports = {
+  id: "206437889113-sioe43rlfeon8iocfbcnh50fcg8jme9d.apps.googleusercontent.com",
+  secret: "Sx9AFgqBY96dIztmsbndoS7I",
+  expSession: "kaygsfkabhwjebfzdyfyaegkfyalfs"
 };
 

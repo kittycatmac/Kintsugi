@@ -2,6 +2,15 @@
    div#test { border: #000 1px solid; padding : 10px 40px 40px 40px;}
 </style>
 <div id="home">
+
+  <h1>Hello?</h1>
+  {{#if user}}
+    <p>Hello {{username}}</p>
+  {{else}}
+    <p>Please <a href='/users/login'>Log In</a></p>
+  {{/if}}
+
+
     <div class="z-depth-5 descrip row">
 	        <div class="sugi col s4">
 	          <img src="img/sugi.png" height="260" width="300" class=" z-depth-5 hide-on-med-and-down" alt="kentsugi">

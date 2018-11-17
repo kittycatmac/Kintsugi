@@ -25,29 +25,30 @@ module.exports = function (app) {
 
 
 
-// routes below
-app.get('/auth/google', passport.authenticate('google', { 
-	prompt : 'select_account',
-	scope: ['profile'] }));
+	// routes below
+	app.get('/auth/google', passport.authenticate('google', {
+		prompt: 'select_account',
+		scope: ['profile', 'email']
+	}));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
-	console.log("REQ: ", req.user);
-	// Successful authentication, redirect home.
-	res.redirect('/home');
-});
+	app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function (req, res) {
+		console.log("REQ: ", req.user);
+		// Successful authentication, redirect home.
+		res.redirect('/home');
+	});
 
 
-// to get home 
-app.get('/home', (req,res) => {
-	console.log('req.home after login: ', req.user);
-	res.render('home')
-});
-// user info
-app.get('/user', (req, res) => {
-	console.log('req.user after login: ', req.user);
-	res.render('user');
-});
-	
+	// to get home 
+	app.get('/home', (req, res) => {
+		console.log('req.home after login: ', req.user);
+		res.render('home')
+	});
+	// user info
+	app.get('/user', (req, res) => {
+		console.log('req.user after login: ', req.user);
+		res.render('user');
+	});
+
 	app.get('/user/logout', (req, res) => {
 		console.log('REQ USER BEFORE LOGOUT', req.user);
 		req.logout();
