@@ -48,11 +48,6 @@ body {
 	height: 260px;
 	width: 340px;
  }
-
- /* .img-sugi {
-	height: 260px;
-	width: 340px;
- } */
  
  .descrip {
 	 background-color: #FFDA7F;
@@ -66,10 +61,16 @@ body {
 	 margin-top: 30px;
 	 margin-left: 40px;
  }
+
+ .table-div-holder {
+	background-color: #603a3f;
+	height: 850px;
+	color: #DDC9AF;
+	margin-bottom: 20px;
+}
  
  .card-div-holder {
 	 background-color: #603a3f;
-	 height: 400px;
 	 color: #DDC9AF;
 	 margin-bottom: 20px;
  }
@@ -86,6 +87,13 @@ body {
 	 height: 1200px;
 	 width: 100%;
  }
+
+ #home {
+	font-family: 'Unica One';
+	font-size: 40px;
+ }
+
+ tr:hover {background-color: #625d52;}
  
  .avatar {
 	 background-color: #FFDA7F;
@@ -180,12 +188,22 @@ body {
  
  @media only screen and (max-width: 1196px) {
 	 .descrip {
-		 height: 400px;
+		 height: 300px;
 	 }
  
 	 .explain {
-		 font-size: 25px;
+		 font-size: 20px;
 	 }
+
+	 .imgsugi {
+		height: 200px;
+		width: 200px;
+	 }
+
+	 .imgavatar {
+		width: 200px;
+		height: 200px;
+	}
  
  }
  
@@ -201,6 +219,7 @@ body {
 	 .imgavatar {
 		 height: auto;
 		 width: 100%;
+
 	 }
  
 	 .badgeimg {
@@ -208,8 +227,12 @@ body {
 		 width: 50px;
 	 }
 
-	 .img-sugi {
-		height: auto;
-		width: 100%;
+	 .imgsugi {
+		height: 100px;
+		width: 100px;
+	 }
+
+	 #logo {
+		 font-size: 20px;
 	 }
  }
