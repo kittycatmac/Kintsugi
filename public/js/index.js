@@ -2,23 +2,23 @@
 var $exampleText = $('#example-text');
 var $exampleDescription = $('#example-description');
 var $submitBtn = $('#submit');
-var $exampleList = $('#example-list');
+var $tableList = $('#myDynamicTable');
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-	saveExample: function (example) {
+	saveExample: function (dataPost) {
 		return $.ajax({
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			type: 'POST',
-			url: 'api/examples',
-			data: JSON.stringify(example)
+			url: 'api/dataPosts',
+			data: JSON.stringify(dataPost)
 		});
 	},
-	getExamples: function () {
+	getExample: function () {
 		return $.ajax({
-			url: 'api/examples',
+			url: 'api/data',
 			type: 'GET'
 		});
 	},
@@ -31,12 +31,12 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-	API.getExamples().then(function (data) {
-		var $examples = data.map(function (example) {
+var refreshTables = function () {
+	API.alphaTable().then(function (data) {
+		var learningTable = data.map(function (example) {
 			var $a = $('<a>')
 				.text(example.text)
-				.attr('href', '/example/' + example.id);
+				.attr('href', '/home/' + example.id);
 
 			var $li = $('<li>')
 				.attr({
@@ -54,11 +54,11 @@ var refreshExamples = function () {
 			return $li;
 		});
 
-		$exampleList.empty();
-		$exampleList.append($examples);
+		$tableList.empty();
+		$tableList.append(learningTable);
 	});
 };
-
+// USE FOR BIO?
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
