@@ -17,8 +17,11 @@
 	    <p class="center-align alpha-tb flow-text">Hiragana Table</p>
         <div id="myDynamicTable">
             <ul>
-                {{#each learningtable}}
-                <li>{{symbol.saying}}</li>
+                {{#each symbols}}
+                	<li class="liclass">
+										<p>{{this.symbol}}</p>
+										<p>{{this.saying}}</p>
+									</li>
                 {{/each}}
             </ul>
         </div>
@@ -67,7 +70,7 @@ function addTable() {
   }
   myTableDiv.appendChild(table);
 }
-addTable();
+//addTable();
 
 // Final Quiz
   var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
