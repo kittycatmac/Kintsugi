@@ -142,6 +142,10 @@ body {
 	 width: 200px;
  }
 
+ button {
+	 background-color: #625d52;
+ }
+
  /*style for flash cards*/
  .flip3D {
 	width: 240px;

@@ -15,7 +15,13 @@
         </div>
     <div class="table-div-holder col s12 m2 z-depth-5 centered">
 	    <p class="center-align alpha-tb flow-text">Hiragana Table</p>
-        <div id="myDynamicTable"></div>
+        <div id="myDynamicTable">
+            <ul>
+                {{#each learningtable}}
+                <li>{{symbol.saying}}</li>
+                {{/each}}
+            </ul>
+        </div>
   
     <!-- Flash cards-->   
     </div>
@@ -97,9 +103,9 @@ addTable();
       chB = questions[pos][2];
       chC = questions[pos][3];
       var testhtml = "<h3>" + question + "</h3>";
-      testhtml += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
-      testhtml += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
-      testhtml += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+      testhtml += "<input type='radio' name='choices' value='A'><label for='choices'> "+chA+"</label><br>";
+      testhtml += "<input type='radio' name='choices' value='B'><label for='choices'> "+chB+"</label><br>";
+      testhtml += "<input type='radio' name='choices' value='C'><label for='choices'> "+chC+"</label><br><br>";
       testhtml += "<button onclick='checkAnswer()'>Sumbmit Answer</button>";
       test.innerHTML = testhtml
     }
