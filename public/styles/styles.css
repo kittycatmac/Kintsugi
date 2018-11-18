@@ -64,17 +64,22 @@ body {
 
  .table-div-holder {
 	background-color: #603a3f;
+	justify-content: space-around;
 	/* height: 850px; */
 	color: #DDC9AF;
 	margin-bottom: 20px;
-	justify-content: space-around;
+	
 }
  
  .card-div-holder {
 	 background-color: #603a3f;
 	 color: #DDC9AF;
+	 /* align-content: center; */
 	 margin-bottom: 20px;
-	 height: 2800px;
+	 height: 1900px;
+	 justify-content: space-around;
+	 padding-left: 80px;
+	 
  }
  
  .quiz-div-holder {
@@ -85,7 +90,7 @@ body {
  
  .container {
 	 background-color: #603A3F;
-	 height: 500px;
+	 height: 2000px;
 	 width: 100%;
  }
 
@@ -123,6 +128,7 @@ body {
  .badges-container {
 	 width: 100%;
 	 margin-top: 30px;
+	 height:2000px;
  }
  
  .badgeimg {
@@ -193,6 +199,19 @@ body {
 
 	.front {
 		color: #625d52;
+		height: fit-content;
+		width: fit-content;
+		font-size: 25px;
+		text-align: center;
+		
+	}
+
+	.back {
+		color: white;
+		height: fit-content;
+		width: fit-content;
+		font-size: 25px;
+		text-align: center;
 	}
 
 	#myDynamicTable ul {
@@ -232,6 +251,8 @@ body {
 		width: 200px;
 		height: 200px;
 	}
+
+
  
  }
  
