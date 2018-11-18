@@ -64,9 +64,10 @@ body {
 
  .table-div-holder {
 	background-color: #603a3f;
-	height: 850px;
+	/* height: 850px; */
 	color: #DDC9AF;
 	margin-bottom: 20px;
+	justify-content: space-around;
 }
  
  .card-div-holder {
@@ -161,22 +162,26 @@ body {
 	   background: #FFDA7F; width: 240px; height: 200px; border-radius: 7px;
 	   backface-visibility: hidden;
 	   transition: -webkit-transform .5s linear 0s;
-	   transition: transform .5s linear 0s;
+		 transition: transform .5s linear 0s;
+		 justify-content: space-around;
 	}
 	
 	.flip3D > .back{
 	   position: absolute;
 	   -webkit-transform: perspective(600px) rotateY( 180deg );
-	   transform: perspective(600px) rotateY( 180deg );
+		 transform: perspective(600px) rotateY( 180deg );
+		 justify-content: space-around;
 	   background: #625d52; width: 240px; height: 200px; border-radius: 7px;
 	   backface-visibility: hidden;
 	   transition: -webkit-transform .5s linear 0s;
-	   transition: transform .5s linear 0s;
+		 transition: transform .5s linear 0s;
+		 justify-content: space-around;
 	}
 	
 	.flip3D:hover > .front{
 	   -webkit-transform: perspective(600px) rotateY( -180deg );
-	   transform: perspective(600px) rotateY( -180deg );
+		 transform: perspective(600px) rotateY( -180deg );
+		 justify-content: space-around;
 	
 	}
 	
@@ -188,6 +193,25 @@ body {
 
 	.front {
 		color: #625d52;
+	}
+
+	#myDynamicTable ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.liclass {
+		width:8%;
+		margin: 1%;
+		border: 3px solid grey;
+		border-radius: 10px;
+		text-align: center;
+	}
+	.liclass p{
+		margin: 0;
+		padding: 0;
+		text-align: center;
 	}
  
  @media only screen and (max-width: 1196px) {
