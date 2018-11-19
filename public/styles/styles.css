@@ -65,7 +65,6 @@ body {
  .table-div-holder {
 	background-color: #603a3f;
 	justify-content: space-around;
-	/* height: 850px; */
 	color: #DDC9AF;
 	margin-bottom: 20px;
 	
@@ -74,7 +73,6 @@ body {
  .card-div-holder {
 	 background-color: #603a3f;
 	 color: #DDC9AF;
-	 /* align-content: center; */
 	 margin-bottom: 20px;
 	 height: 1900px;
 	 justify-content: space-around;
@@ -87,6 +85,11 @@ body {
 	 color: #DDC9AF;
 	 margin-top: 10px;
  }
+
+ div#test {
+	border: #000 1px solid;
+	padding: 10px 40px 40px 40px;
+}
  
  .container {
 	 background-color: #603A3F;
@@ -99,7 +102,7 @@ body {
 	font-size: 40px;
  }
 
- tr:hover {background-color: #625d52;}
+li:hover {background-color: #625d52;}
  
  .avatar {
 	 background-color: #FFDA7F;
@@ -117,6 +120,7 @@ body {
 	font-family: 'Titan One', cursive;
 	color: #625D52;
 	font-size: 20px;
+	margin-bottom: 20px;
  }
  
  .imgavatar {

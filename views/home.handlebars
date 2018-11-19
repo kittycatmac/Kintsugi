@@ -19,9 +19,9 @@
             <ul>
                 {{#each symbols}}
                 	<li class="liclass">
-										<p>{{this.symbol}}</p>
-										<p>{{this.saying}}</p>
-									</li>
+						<p>{{this.symbol}}</p>
+						<p>{{this.saying}}</p>
+					</li>
                 {{/each}}
             </ul>
         </div>
@@ -29,7 +29,7 @@
     <!-- Flash cards-->   
     </div>
     <div class="card-div-holder col s12 m2 z-depth-5 center-align">
-        <p id="" class="center-align">Flash Cards</p>
+        <p class="center-align">Flash Cards</p>
         {{#each flashcards}}
         <div class="flip3D">
             <div class="back">{{ this.front }}</div>

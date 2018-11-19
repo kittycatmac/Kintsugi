@@ -5,6 +5,7 @@ USE Kintsugidb;
 
  CREATE TABLE UserSchema(
    user_ID VARCHAR(30) NOT NULL,
+   name VARCHAR(40) NOT NULL,
    Bio VARCHAR(140) NOT NULL,
    badges DECIMAL(10,4) NOT NULL,
    study_cards VARCHAR(140) NOT NULL,
