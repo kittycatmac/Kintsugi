@@ -2,8 +2,22 @@
         <div class="z-depth-5 container row">
         <div class="col s4 avatar z-depth-5"><img src="img/ava1.png" alt="avatar" class="imgavatar"></div>
         <div class="col s8 bio z-depth-5">
-            <p class="biotext">{{ user.user_ID }}</p>
-            <p class="biotext">Give a bio of who you are and why are you learning Japanese?</p>
+            <div class="row biotext">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="input_text" type="text" data-length="10">
+                  <label for="input_text">Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea2" class="materialize-textarea" data-length="100"></textarea>
+                  <label for="textarea2">Bio</label>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
     <div class="row">
         <div class="badges-container">
@@ -21,6 +35,20 @@
                             Quiz badges
                             <span class="new badge">1</span></div>
                           <div class="collapsible-body"><p class="badges z-depth-5 center-align">Level One Quiz Badge</p><img src="img/gold.png" alt="daruma doll" class="badgeimg z-depth-5"></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header">
+                            <i class="material-icons">clear_all</i>
+                            Study Cards
+                            <span class="new badge">1</span></div>
+                          <div class="collapsible-body"><p class="badges z-depth-5 center-align">Level One Deck</p>        
+                          {{#each flashcards}}
+                            <div class="flip3D">
+                              <div class="back">{{ this.front }}</div>
+                              <div class="front">{{ this.back }}</div>
+                            </div>
+                          {{/each}}
+                          </div>
                         </li>
                 </ul>
         </div>
