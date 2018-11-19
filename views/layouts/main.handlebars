@@ -4,21 +4,13 @@
 <head>
 	<title>Kintsugi</title>
 
-	<!-- link to the jQuery library -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-	<!-- link to reset stylesheet -->
-	<link rel="stylesheet" href="reset.css">
 
 	<!--imported google icon font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Titan+One|Unica+One" rel="stylesheet">
 
-	<!-- compiled and minified materialize CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
-	<!-- compiled and minified materialize JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 	<link rel="icon" href="img/favicon-16x16.png" type="image">
 	<link rel="stylesheet" href="styles/styles.css" type="text/css">
@@ -37,37 +29,24 @@
 				<div>
 					<ul class="right hide-on-small-only" id="head-nav-links">
 						{{#if user}}
-							<li><a href="user_profile">Profile</a></li>
-							<li><a href="/api/logout">Logout</a></li>
+						<li><a href="user_profile">Profile</a></li>
+						<li><a href="/api/logout">Logout</a></li>
 						{{else}}
-							<li><a href="/auth/google">Login</a></li>
+						<li><a href="/auth/google">Login</a></li>
 						{{/if}}
 					</ul>
 				</div>
 				<div id="head-nav-links" class="right">
 					<a href="#slide-out" data-target="slide-out" class="sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
 					<ul id="slide-out" class="sidenav hide">
-			</div>
+				</div>
 		</nav>
 	</header>
 	{{{body}}}
+	<!-- link to the jQuery library -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- compiled and minified materialize JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 </body>
 
 </html>
-<script>
-
-	//document.addEventListener('DOMContentLoaded', function () {
-	// 	var elems = document.querySelectorAll('.sidenav');
-	//	var instances = M.Sidenav.init(elems, options);
-	//});
-
-	//   // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-	//   var collapsibleElem = document.querySelector('.collapsible');
-	//   var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-	// Or with jQuery
-
-	//$(document).ready(function () {
-	//	$('.sidenav').sidenav();
-	//});
-</script>

@@ -6,27 +6,28 @@
 </style>
 <div id="home">
     <div class="z-depth-5 descrip row">
-	        <div class="sugi col s4">
-	          <img src="img/sugi.png" height="260" width="300" class=" z-depth-5 imgsugi" alt="kentsugi">
-	        </div>
-	        <div class="col s8 explain">
-		        <p>Start by daily reviewing the basic alphabet table. Then move through the flashcards to prepare for the quiz to move to next level. Receive Kintsugi Badges for each card deck and quiz you study.</p>
-	        </div>
+        <div class="sugi col s4">
+            <img src="img/sugi.png" height="260" width="300" class=" z-depth-5 imgsugi" alt="kentsugi">
         </div>
+        <div class="col s8 explain">
+            <p>Start by daily reviewing the basic alphabet table. Then move through the flashcards to prepare for the
+                quiz to move to next level. Receive Kintsugi Badges for each card deck and quiz you study.</p>
+        </div>
+    </div>
     <div class="table-div-holder col s12 m2 z-depth-5 centered">
-	    <p class="center-align alpha-tb flow-text">Hiragana Table</p>
+        <p class="center-align alpha-tb flow-text">Hiragana Table</p>
         <div id="myDynamicTable">
             <ul>
                 {{#each symbols}}
-                	<li class="liclass">
-										<p>{{this.symbol}}</p>
-										<p>{{this.saying}}</p>
-									</li>
+                <li class="liclass">
+                    <p>{{this.symbol}}</p>
+                    <p>{{this.saying}}</p>
+                </li>
                 {{/each}}
             </ul>
         </div>
-  
-    <!-- Flash cards-->   
+
+        <!-- Flash cards-->
     </div>
     <div class="card-div-holder col s12 m2 z-depth-5 center-align">
         <p id="" class="center-align">Flash Cards</p>
@@ -37,55 +38,55 @@
         </div>
         {{/each}}
     </div>
-		
+
     <div class="quiz-div-holder col s12 m2 z-depth-5">
-	    <p id="" class="center-align">Quiz</p>
-		<h2 id="test_status"></h2>
-		<div id="test"></div>
+        <p id="" class="center-align">Quiz</p>
+        <h2 id="test_status"></h2>
+        <div id="test"></div>
     </div>
 </div>
 
 <script src="/js/index.js"></script>
 <script>
 
-// Learning Table    
-function addTable() {
-  var myTableDiv = document.getElementById("myDynamicTable");
+    // Learning Table    
+    function addTable() {
+        var myTableDiv = document.getElementById("myDynamicTable");
 
-  var table = document.createElement('TABLE');
-  table.border = '1';
+        var table = document.createElement('TABLE');
+        table.border = '1';
 
-  var tableBody = document.createElement('TBODY');
-  table.appendChild(tableBody);
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
 
-  for (var i = 0; i < 5; i++) {
-    var tr = document.createElement('TR');
-    tableBody.appendChild(tr);
+        for (var i = 0; i < 5; i++) {
+            var tr = document.createElement('TR');
+            tableBody.appendChild(tr);
 
-    for (var j = 0; j < 10; j++) {
-      var td = document.createElement('TD');
-      td.width = '75';
-      td.appendChild(document.createTextNode("Cell " + i + "," + j));
-      tr.appendChild(td);
+            for (var j = 0; j < 10; j++) {
+                var td = document.createElement('TD');
+                td.width = '75';
+                td.appendChild(document.createTextNode("Cell " + i + "," + j));
+                tr.appendChild(td);
+            }
+        }
+        myTableDiv.appendChild(table);
     }
-  }
-  myTableDiv.appendChild(table);
-}
-//addTable();
+    //addTable();
 
-// Final Quiz
-  var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
-  var questions = [
-      ["How do you pronounce か?", "ka", "da", "mi", "A"],
-      ["How do you pronounce り?", "ko", "ri", "shi", "B"],
-      ["How do you pronounce つ?", "nu", "tsu", "ru", "B"],
-      ["How do you pronounce す?", "ha", "ka", "su", "C"],
-      ["How do you pronounce ふ?", "fu", "mi", "tsu", "A"],
-      ["What is the Hiragana character for 'ma'?", "く", "し", "ま", "C"],
-      ["What is the Hiragana character for 'n'?", "さ", "も", "ん", "C"],
-      ["What is the Hiragana character for 'e'?", "あ", "え", "う", "B"],
-      ["What is the Hiragana character for 'i'?", "か", "る", "い", "C"],
-      ["What is the Hiragana character for 'ko'?", "き", "く", "こ", "C"]
+    // Final Quiz
+    var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+    var questions = [
+        ["How do you pronounce か?", "ka", "da", "mi", "A"],
+        ["How do you pronounce り?", "ko", "ri", "shi", "B"],
+        ["How do you pronounce つ?", "nu", "tsu", "ru", "B"],
+        ["How do you pronounce す?", "ha", "ka", "su", "C"],
+        ["How do you pronounce ふ?", "fu", "mi", "tsu", "A"],
+        ["What is the Hiragana character for 'ma'?", "く", "し", "ま", "C"],
+        ["What is the Hiragana character for 'n'?", "さ", "も", "ん", "C"],
+        ["What is the Hiragana character for 'e'?", "あ", "え", "う", "B"],
+        ["What is the Hiragana character for 'i'?", "か", "る", "い", "C"],
+        ["What is the Hiragana character for 'ko'?", "き", "く", "こ", "C"]
 
     ];
 
@@ -101,17 +102,38 @@ function addTable() {
             correct = 0;
             return false
         }
- _("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length;
-      question = questions[pos][0];
-      chA = questions[pos][1];
-      chB = questions[pos][2];
-      chC = questions[pos][3];
-      var testhtml = "<h3>" + question + "</h3>";
-      testhtml += "<input type='radio' name='choices' value='A'><label for='choices'> "+chA+"</label><br>";
-      testhtml += "<input type='radio' name='choices' value='B'><label for='choices'> "+chB+"</label><br>";
-      testhtml += "<input type='radio' name='choices' value='C'><label for='choices'> "+chC+"</label><br><br>";
-      testhtml += "<button onclick='checkAnswer()'>Sumbmit Answer</button>";
-      test.innerHTML = testhtml
+        _("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length;
+        question = questions[pos][0];
+        chA = questions[pos][1];
+        chB = questions[pos][2];
+        chC = questions[pos][3];
+        var testhtml = "<h3>" + question + "</h3>";
+        testhtml += `
+            <p>
+                <label>
+                    <input name="choices" class="with-gap" type="radio" />
+                <span>${chA}</span>
+                </label>
+            </p>
+        `;
+        testhtml += `
+            <p>
+                <label>
+                    <input name="choices" class="with-gap" type="radio" />
+                <span>${chB}</span>
+                </label>
+            </p>
+        `;
+        testhtml += `
+            <p>
+                <label>
+                    <input name="choices" class="with-gap" type="radio" />
+                <span>${chC}</span>
+                </label>
+            </p>
+        `;
+        testhtml += "<button onclick='checkAnswer()'>Sumbmit Answer</button>";
+        test.innerHTML = testhtml
     }
     function checkAnswer() {
         choices = document.getElementsByName("choices");
