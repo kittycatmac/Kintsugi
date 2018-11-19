@@ -10,7 +10,7 @@ VALUES
 "),
  ("Japanese: 当たる
   , Hiragana: あたる
- ","be successful, undertake, when the time comes, hit the right spot, be equal to 
+ ","be successful, undertake
 "),
  ("Japanese: 争い
 , Hiragana: あらそい

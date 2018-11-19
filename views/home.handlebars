@@ -1,9 +1,3 @@
-<style>
-    div#test {
-        border: #000 1px solid;
-        padding: 10px 40px 40px 40px;
-    }
-</style>
 <div id="home">
     <div class="z-depth-5 descrip row">
 	        <div class="sugi col s4">
@@ -16,16 +10,24 @@
     <div class="table-div-holder col s12 m2 z-depth-5 centered">
 	    <p class="center-align alpha-tb flow-text">Hiragana Table</p>
         <div id="myDynamicTable">
-            <ul>
-                {{#each learningtable}}
-                <li>{{symbol.saying}}</li>
-                {{/each}}
-            </ul>
+            <table>
+                <tbody>
+                    <tr>
+                        {{#each learningtable}}
+                        <td>{{this.symbol}}</td>
+                        <td>{{this.saying}}</td>
+                        <td>{{this.symbol}}</td>
+                        <td>{{this.saying}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>    
         </div>
-  
+    </div>
+
     <!-- Flash cards-->   
     </div>
-    <div class="card-div-holder col s12 m2 z-depth-5 center-align">
+        <div class="card-div-holder col s12 m2 z-depth-5 center-align">
         <p id="" class="center-align">Flash Cards</p>
         {{#each flashcards}}
         <div class="flip3D">
@@ -44,30 +46,7 @@
 <script src="/js/index.js"></script>
 <script>
 
-// Learning Table    
-function addTable() {
-  var myTableDiv = document.getElementById("myDynamicTable");
-
-  var table = document.createElement('TABLE');
-  table.border = '1';
-
-  var tableBody = document.createElement('TBODY');
-  table.appendChild(tableBody);
-
-  for (var i = 0; i < 5; i++) {
-    var tr = document.createElement('TR');
-    tableBody.appendChild(tr);
-
-    for (var j = 0; j < 10; j++) {
-      var td = document.createElement('TD');
-      td.width = '75';
-      td.appendChild(document.createTextNode("Cell " + i + "," + j));
-      tr.appendChild(td);
-    }
-  }
-  myTableDiv.appendChild(table);
-}
-addTable();
+// Learning Table
 
 // Final Quiz
   var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
