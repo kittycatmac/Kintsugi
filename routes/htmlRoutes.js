@@ -1,23 +1,18 @@
 var db = require('../models');
 
 module.exports = function (app) {
-	// Load table page
-	app.get('/table', function (req, res) {
-		db.LearningSchema.findAll().then((learningtable => {
-			const { user } = req;
-			res.render('home', {
-			user,learningtable
-			});
-		}));
-	});
-	
+
 	// Load index page
 	app.get('/', function (req, res) {
+		console.log("hit");
 		db.CardSchema.findAll().then((flashcards => {
-			const { user } = req;
-			res.render('home', {
-				user,
-				flashcards
+			db.LearningSchema.findAll().then((symbols) => {
+				console.log(flashcards,symbols);
+				const { user } = req;
+				res.render('home', {
+					user,
+					flashcards,symbols
+				})
 			
 			});
 		}));

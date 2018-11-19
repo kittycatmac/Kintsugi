@@ -64,7 +64,8 @@ body {
 
  .table-div-holder {
 	background-color: #603a3f;
-	height: 850px;
+	justify-content: space-around;
+	/* height: 850px; */
 	color: #DDC9AF;
 	margin-bottom: 20px;
 	font-family: 'Unica One';
@@ -74,6 +75,7 @@ body {
  .card-div-holder {
 	 background-color: #603a3f;
 	 color: #DDC9AF;
+	 /* align-content: center; */
 	 margin-bottom: 20px;
 	 height: 2800px;
 	 font-family: 'Unica One';
@@ -89,7 +91,7 @@ body {
  
  .container {
 	 background-color: #603A3F;
-	 height: 500px;
+	 height: 2000px;
 	 width: 100%;
  }
 
@@ -122,6 +124,7 @@ body {
  .badges-container {
 	 width: 100%;
 	 margin-top: 30px;
+	 height:2000px;
  }
  
  .badgeimg {
@@ -161,22 +164,26 @@ body {
 	   background: #FFDA7F; width: 240px; height: 200px; border-radius: 7px;
 	   backface-visibility: hidden;
 	   transition: -webkit-transform .5s linear 0s;
-	   transition: transform .5s linear 0s;
+		 transition: transform .5s linear 0s;
+		 justify-content: space-around;
 	}
 	
 	.flip3D > .back{
 	   position: absolute;
 	   -webkit-transform: perspective(600px) rotateY( 180deg );
-	   transform: perspective(600px) rotateY( 180deg );
+		 transform: perspective(600px) rotateY( 180deg );
+		 justify-content: space-around;
 	   background: #625d52; width: 240px; height: 200px; border-radius: 7px;
 	   backface-visibility: hidden;
 	   transition: -webkit-transform .5s linear 0s;
-	   transition: transform .5s linear 0s;
+		 transition: transform .5s linear 0s;
+		 justify-content: space-around;
 	}
 	
 	.flip3D:hover > .front{
 	   -webkit-transform: perspective(600px) rotateY( -180deg );
-	   transform: perspective(600px) rotateY( -180deg );
+		 transform: perspective(600px) rotateY( -180deg );
+		 justify-content: space-around;
 	
 	}
 	
@@ -188,6 +195,38 @@ body {
 
 	.front {
 		color: #625d52;
+		height: fit-content;
+		width: fit-content;
+		font-size: 25px;
+		text-align: center;
+		
+	}
+
+	.back {
+		color: white;
+		height: fit-content;
+		width: fit-content;
+		font-size: 25px;
+		text-align: center;
+	}
+
+	#myDynamicTable ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.liclass {
+		width:8%;
+		margin: 1%;
+		border: 3px solid grey;
+		border-radius: 10px;
+		text-align: center;
+	}
+	.liclass p{
+		margin: 0;
+		padding: 0;
+		text-align: center;
 	}
  
  @media only screen and (max-width: 1196px) {
@@ -208,6 +247,8 @@ body {
 		width: 200px;
 		height: 200px;
 	}
+
+
  
  }
  
