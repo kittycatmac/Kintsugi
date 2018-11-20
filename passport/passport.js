@@ -26,7 +26,7 @@ passport.use(
   new GoogleStrategy({
 		clientID: "206437889113-sioe43rlfeon8iocfbcnh50fcg8jme9d.apps.googleusercontent.com",
 		clientSecret: "Sx9AFgqBY96dIztmsbndoS7I",
-		callbackURL: "http://localhost:3000/auth/google/callback"
+		callbackURL: "https://tranquil-garden-79849.herokuapp.com/auth/google/callback"
   }, async (accessToken, refreshToken, profile, done) => {	
 		const existingUser = await db.UserSchema.findById(profile.id );
 	
